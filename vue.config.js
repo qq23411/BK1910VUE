@@ -1,0 +1,40 @@
+const path = require("path")
+module.exports = {
+    devServer:{
+        proxy:{
+            "/java-api":{
+                target:"https://m.zbj.com",
+                changeOrigin:true,
+                secure:false
+            },
+            "/api":{
+                target:"https://m.zbj.com",
+                changeOrigin:true,
+                secure:false
+            },
+            "/server":{
+                target:"https://m.228.cn",
+                changeOrigin:true,
+            },
+            "/getHotWord":{
+                target:"https://m.zbj.com",
+                changeOrigin:true,
+            }
+        }
+    },
+    configureWebpack:{
+        resolve:{
+            alias:{
+                "@":path.join(__dirname,"./src"),
+                "api":path.join(__dirname,"./src/api"),
+                "components":path.join(__dirname,"./src/components"),
+                "view":path.join(__dirname,"./src/view"),
+                "common":path.join(__dirname,"./src/common"),
+                "utils":path.join(__dirname,"./src/utils"),
+                "router":path.join(__dirname,"./src/router"),
+                "store":path.join(__dirname,"./src/store")
+            }
+        }
+    }
+}
+//
